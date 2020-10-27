@@ -1,3 +1,11 @@
+# File: SortRSVPs.py
+# Author: Anna Elise Wong
+# Date updated: 10-27-2020
+# Purpose: Sorts through lists of RSVPs to events and stores in a dictionary who
+#          attends each event, and then prints out how many people attended each
+#          event, how many people went to more than one event (repeat attendees)
+#          and how many people went to n number of events.
+
 import csv, sys
 
 def main():
@@ -8,6 +16,8 @@ def main():
         with open(arg, newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             for row in reader:
+                # the variables below can be changed to accommodate different types
+                # of data, this just suited my needs at the time
                 fullname = row[0]
                 event = row[3][:12]
                 temp = attendees.get(fullname, [])
